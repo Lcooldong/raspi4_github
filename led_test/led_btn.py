@@ -14,3 +14,13 @@ try:
     while 1:
         if GPIO.input(btn):
             GPIO.output(led1, GPIO.HIGH)
+            GPIO.output(led2, GPIO.LOW)
+        else:
+            GPIO.output(led1, GPIO.LOW)
+            GPIO.output(led2, GPIO.HIGH)
+            time.sleep(0.1)
+            GPIO.output(led2, GPIO.LOW)
+            time.sleep(0.1)
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
