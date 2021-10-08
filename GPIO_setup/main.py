@@ -6,8 +6,8 @@ whiteLed = 17  # GPIO17
 UVLed = 18     # GPIO18
 vibrator = 23  # GPIO23
 buzzer = 24    # GPIO24
-btn1 = 27      # GPIO27
-btn2 = 22      # GPIO22
+btn1 = 8      # GPIO27
+btn2 = 7      # GPIO22
 ledGreen = 5   # GPIO_5
 ledRed = 6     # GPIO_6
 
