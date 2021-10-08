@@ -22,23 +22,23 @@ GPIO.setup(ledRed, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(btn1, GPIO.IN)
 GPIO.setup(btn2, GPIO.IN)
 
-def btn1pushed(chBtn1):
+def btn1pushed(channel):
     print("button1")
 
-def btn2pushed(chBtn2):
-    print("button2")
+# def btn2pushed(chBtn2):
+#     print("button2")
 
 # loop
 if __name__ == '__main__':
     print("Ctrl + C to exit")
     try:
-        while True:
-            GPIO.add_event_detect(btn1, GPIO.RISING, callback=btn1pushed, bouncetime=200)
-            GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed, bouncetime=200)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=btn1pushed, bouncetime=200)
+            
+            # GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed, bouncetime=200)
 
     except:
         print("error")
     finally:
         GPIO.remove_event_detect(btn1)
-        GPIO.remove_event_detect(btn2)
+        # GPIO.remove_event_detect(btn2)
         GPIO.cleanup()
