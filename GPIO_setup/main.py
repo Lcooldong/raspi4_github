@@ -19,8 +19,8 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(ledGreen, GPIO.OUT)
 GPIO.setup(ledRed, GPIO.OUT)
 
-GPIO.setup(btn1, GPIO.IN, GPIO.LOW)
-GPIO.setup(btn2, GPIO.IN, GPIO.LOW)
+GPIO.setup(btn1, GPIO.IN, initial=GPIO.LOW)
+GPIO.setup(btn2, GPIO.IN, initial=GPIO.LOW)
 
 #GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
