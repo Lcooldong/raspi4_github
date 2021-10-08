@@ -33,20 +33,24 @@ if __name__ == '__main__':
     print("Ctrl + C to exit")
     try:
         while True:
-            btn1State = GPIO.input(btn1)
-            btn2State = GPIO.input(btn2)
+            currentBtn1State = GPIO.input(btn1)
+            currentBtn2State = GPIO.input(btn2)
 
-            if (btn1State != lastBtn1State):
-                print("btn1")
-                GPIO.output(ledGreen, GPIO.HIGH)
-                time.sleep(1)
-                GPIO.output(ledGreen, GPIO.LOW)
+            if (currentBtn1State != lastBtn1State):
+                btn1State = currentBtn1State
+                if(btn1State==True):
+                    print("btn1")
+                    GPIO.output(ledGreen, GPIO.HIGH)
+                    time.sleep(1)
+                    GPIO.output(ledGreen, GPIO.LOW)
 
-            if (btn2State != lastBtn2State):
-                print("btn2")
-                GPIO.output(ledRed, GPIO.HIGH)
-                time.sleep(1)
-                GPIO.output(ledRed, GPIO.LOW)
+            if (currentBtn2State != lastBtn2State):
+                btn2State = currentBtn2State
+                if(btn2State==True):
+                    print("btn2")
+                    GPIO.output(ledRed, GPIO.HIGH)
+                    time.sleep(1)
+                    GPIO.output(ledRed, GPIO.LOW)
 
             if (btn1State == True):
                 GPIO.output(whiteLed, GPIO.HIGH)
