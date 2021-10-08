@@ -23,9 +23,6 @@ GPIO.setup(ledRed, GPIO.OUT)
 GPIO.setup(btn1, GPIO.IN)
 GPIO.setup(btn2, GPIO.IN)
 
-#GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-#GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
 # loop
 if __name__ == '__main__':
     print("Ctrl + C to exit")
@@ -33,15 +30,11 @@ if __name__ == '__main__':
         while True:
             btn1Read = GPIO.input(btn1)
             btn2Read = GPIO.input(btn2)
-            # print(btn1Read)
-            # time.sleep(1)
-            # print(btn2Read)
-            # time.sleep(1)
 
             if (btn1Read == True):
                 print("btn1")
-                time.sleep(1)
-
+                time.sleep(0.5)
+                GPIO.output(ledGreen, GPIO.HIGH)
             # else:
             #     GPIO.output(UVLed, GPIO.HIGH)
             #     time.sleep(0.1)
@@ -50,7 +43,8 @@ if __name__ == '__main__':
 
             if (btn2Read == True):
                 print("btn2")
-                time.sleep(1)
+                time.sleep(0.5)
+                GPIO.output(ledRed, GPIO.HIGH)
 
 
     except:
