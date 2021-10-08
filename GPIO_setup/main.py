@@ -18,23 +18,29 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(ledGreen, GPIO.OUT)
 GPIO.setup(ledRed, GPIO.OUT)
 
-GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(btn1, GPIO.IN)
+GPIO.setup(btn2, GPIO.IN)
+
+#GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+#GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # loop
 if __name__ == '__main__':
     print("Ctrl + C to exit")
     try:
         while 1:
-            if GPIO.input(btn):
-                GPIO.output(led1, GPIO.HIGH)
-                GPIO.output(led2, GPIO.LOW)
+            if GPIO.input(btn1):
+                print("btn1")
+                time.sleep(0.5)
             else:
-                GPIO.output(led1, GPIO.LOW)
-                GPIO.output(led2, GPIO.HIGH)
+                GPIO.output(UVLed, GPIO.HIGH)
                 time.sleep(0.1)
-                GPIO.output(led2, GPIO.LOW)
+                GPIO.output(UVLed, GPIO.LOW)
                 time.sleep(0.1)
+
+            if GPIO.input(btn2):
+                print("btn2")
+                time.sleep(0.5)
 
     except KeyboardInterrupt:
         GPIO.cleanup()
