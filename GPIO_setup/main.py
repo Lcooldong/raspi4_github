@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 whiteLed = 17  # GPIO17
 UVLed = 18     # GPIO18
@@ -18,8 +19,8 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(ledGreen, GPIO.OUT)
 GPIO.setup(ledRed, GPIO.OUT)
 
-GPIO.setup(btn1, GPIO.IN)
-GPIO.setup(btn2, GPIO.IN)
+GPIO.setup(btn1, GPIO.IN, GPIO.LOW)
+GPIO.setup(btn2, GPIO.IN, GPIO.LOW)
 
 #GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -28,7 +29,7 @@ GPIO.setup(btn2, GPIO.IN)
 if __name__ == '__main__':
     print("Ctrl + C to exit")
     try:
-        while 1:
+        while True:
             if GPIO.input(btn1):
                 print("btn1")
                 time.sleep(0.5)
