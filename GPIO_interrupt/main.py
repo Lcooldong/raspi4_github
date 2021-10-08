@@ -31,12 +31,9 @@ def btn2pushed(channel):
 # loop
 if __name__ == '__main__':
     print("Ctrl + C to exit")
-
-    GPIO.add_event_detect(btn1, GPIO.RISING, callback=btn1pushed)
-    GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed)
-
     try:
-        pass
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=btn1pushed, bouncetime=200)
+        GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed, bouncetime=200)
 
         # while True:
         #     pass
@@ -44,4 +41,6 @@ if __name__ == '__main__':
     except:
         print("error")
     finally:
+        GPIO.remove_event_detect(btn1)
+        GPIO.remove_event_detect(btn2)
         GPIO.cleanup()
