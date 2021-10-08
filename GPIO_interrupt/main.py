@@ -1,46 +1,32 @@
+import signal
+import sys
 import RPi.GPIO as GPIO
-import time
 
-whiteLed = 17  # GPIO17
-UVLed = 18     # GPIO18
-vibrator = 23  # GPIO23
-buzzer = 24    # GPIO24
-btn1 = 8      # GPIO27
-btn2 = 7      # GPIO22
-ledGreen = 5   # GPIO_5
-ledRed = 6     # GPIO_6
+BUTTON_GPIO = 8
+LED_GPIO = 5
 
-# setup
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(whiteLed, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(UVLed, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(vibrator, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(buzzer, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(ledGreen, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(ledRed, GPIO.OUT, initial=GPIO.LOW)
-
-GPIO.setup(btn1, GPIO.IN)
-GPIO.setup(btn2, GPIO.IN)
+last_LED_state = 0
 
 
-def btn1pushed(channel):
-    print("button1")
-
-# def btn2pushed(chBtn2):
-#     print("button2")
+def signal_handler(sig, frame):
+    GPIO.cleanup()
+    sys.exit(0)
 
 
-# loop
+def button_pressed_callback(channel):
+    global last_LED_state
+    GPIO.output(LED_GPIO, not last_LED_state)
+    last_LED_state = not last_LED_state
+
+
 if __name__ == '__main__':
-    print("Ctrl + C to exit")
-    try:
-        GPIO.add_event_detect(btn1, GPIO.FALLING, callback=btn1pushed, bouncetime=200)
+    GPIO.setmode(GPIO.BCM)
 
-        # GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed, bouncetime=200)
+    GPIO.setup(BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(LED_GPIO, GPIO.OUT)
 
-    except:
-        print("error")
-    finally:
-        GPIO.remove_event_detect(btn1)
-        # GPIO.remove_event_detect(btn2)
-        GPIO.cleanup()
+    GPIO.add_event_detect(BUTTON_GPIO, GPIO.FALLING,
+                          callback=button_pressed_callback, bouncetime=200)
+
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.pause()
