@@ -13,12 +13,12 @@ ledRed = 6     # GPIO_6
 
 # setup
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(whiteLed, GPIO.OUT)
-GPIO.setup(UVLed, GPIO.OUT)
-GPIO.setup(vibrator, GPIO.OUT)
-GPIO.setup(buzzer, GPIO.OUT)
-GPIO.setup(ledGreen, GPIO.OUT)
-GPIO.setup(ledRed, GPIO.OUT)
+GPIO.setup(whiteLed, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(UVLed, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(vibrator, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(buzzer, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(ledGreen, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(ledRed, GPIO.OUT, initial=GPIO.LOW)
 
 GPIO.setup(btn1, GPIO.IN)
 GPIO.setup(btn2, GPIO.IN)
