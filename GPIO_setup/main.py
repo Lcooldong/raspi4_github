@@ -37,7 +37,7 @@ if __name__ == '__main__':
             # print(btn2Read)
             # time.sleep(1)
 
-            if (btn1Read == False):
+            if (btn1Read == True):
                 print("btn1")
                 time.sleep(0.5)
             else:
