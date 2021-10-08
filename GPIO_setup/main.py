@@ -54,7 +54,6 @@ if __name__ == '__main__':
                 GPIO.output(whiteLed, GPIO.LOW)
                 time.sleep(0.5)
 
-            time.sleep(0.5)
             lastBtn1State = btn1State
             lastBtn2State = btn2State
 
