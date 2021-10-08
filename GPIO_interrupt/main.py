@@ -21,9 +21,9 @@ def button_pressed_callback(channel):
 
 if __name__ == '__main__':
     GPIO.setmode(GPIO.BCM)
+    GPIO.setup(BUTTON_GPIO, GPIO.IN)
+    GPIO.setup(LED_GPIO, GPIO.OUT, initial=GPIO.LOW)
     try:
-        GPIO.setup(BUTTON_GPIO, GPIO.IN)
-        GPIO.setup(LED_GPIO, GPIO.OUT, initial=GPIO.LOW)
 
         GPIO.add_event_detect(BUTTON_GPIO, GPIO.RISING,
                               callback=button_pressed_callback, bouncetime=300)
