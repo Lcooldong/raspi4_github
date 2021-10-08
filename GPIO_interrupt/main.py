@@ -1,9 +1,12 @@
 import signal
 import sys
 import RPi.GPIO as GPIO
+import time
 
 btn1 = 8
 btn2 = 7
+vibrator = 23  # GPIO23
+buzzer = 24    # GPIO24
 ledGreen = 6
 ledRed = 5
 
@@ -13,6 +16,8 @@ last_ledRed_state = 0
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(btn1, GPIO.IN)
 GPIO.setup(btn2, GPIO.IN)
+GPIO.setup(vibrator, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(buzzer, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(ledGreen, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(ledRed, GPIO.OUT, initial=GPIO.LOW)
 
@@ -25,11 +30,15 @@ def button_pressed_callback1(channel):
     global last_ledGreen_state
     GPIO.output(ledGreen, not last_ledGreen_state)
     last_ledGreen_state = not last_ledGreen_state
+    GPIO.output(vibrator, GPIO.HIGH)
+    time.sleep(1)
 
 def button_pressed_callback2(channel):
     global last_ledRed_state
     GPIO.output(ledRed, not last_ledRed_state)
     last_ledRed_state = not last_ledRed_state
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(1)
 
 if __name__ == '__main__':
     try:
