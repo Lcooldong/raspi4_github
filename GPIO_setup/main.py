@@ -50,7 +50,9 @@ if __name__ == '__main__':
                 #print("btn2")
                 time.sleep(0.5)
 
-    except KeyboardInterrupt:
+    except:
+        print("error")
+    finally:
         GPIO.cleanup()
 
 
