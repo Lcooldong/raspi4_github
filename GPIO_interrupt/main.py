@@ -7,6 +7,9 @@ LED_GPIO = 5
 
 last_LED_state = 0
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(BUTTON_GPIO, GPIO.IN)
+GPIO.setup(LED_GPIO, GPIO.OUT, initial=GPIO.LOW)
 
 def signal_handler(sig, frame):
     GPIO.cleanup()
@@ -20,14 +23,9 @@ def button_pressed_callback(channel):
 
 
 if __name__ == '__main__':
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(BUTTON_GPIO, GPIO.IN)
-    GPIO.setup(LED_GPIO, GPIO.OUT, initial=GPIO.LOW)
     try:
 
-        GPIO.add_event_detect(BUTTON_GPIO, GPIO.RISING,
-                              callback=button_pressed_callback, bouncetime=300)
-
+        GPIO.add_event_detect(BUTTON_GPIO, GPIO.RISING, callback=button_pressed_callback, bouncetime=300)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
     except:
