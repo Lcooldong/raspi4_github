@@ -46,7 +46,7 @@ if __name__ == '__main__':
                 GPIO.output(UVLed, GPIO.LOW)
                 time.sleep(0.1)
 
-            if GPIO.input(btn2):
+            if (btn2Read == True):
                 print("btn2")
                 time.sleep(0.5)
 
