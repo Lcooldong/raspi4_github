@@ -22,10 +22,10 @@ GPIO.setup(ledRed, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(btn1, GPIO.IN)
 GPIO.setup(btn2, GPIO.IN)
 
-def btn1pushed(channel):
+def btn1pushed(chBtn1):
     print("button1")
 
-def btn2pushed(channel):
+def btn2pushed(chBtn2):
     print("button2")
 
 # loop
