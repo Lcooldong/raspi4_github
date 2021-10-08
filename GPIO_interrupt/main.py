@@ -25,8 +25,8 @@ if __name__ == '__main__':
         GPIO.setup(BUTTON_GPIO, GPIO.IN)
         GPIO.setup(LED_GPIO, GPIO.OUT, initial=GPIO.LOW)
 
-        GPIO.add_event_detect(BUTTON_GPIO, GPIO.FALLING,
-                              callback=button_pressed_callback, bouncetime=200)
+        GPIO.add_event_detect(BUTTON_GPIO, GPIO.RISING,
+                              callback=button_pressed_callback, bouncetime=300)
 
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
