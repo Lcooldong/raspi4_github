@@ -32,9 +32,13 @@ if __name__ == '__main__':
         while True:
             btn1Read = GPIO.input(btn1)
             btn2Read = GPIO.input(btn2)
+            print(btn1Read)
+            time.sleep(1)
+            print(btn2Read)
+            time.sleep(1)
 
             if (btn1Read == True):
-                print("btn1")
+                #print("btn1")
                 time.sleep(0.5)
             else:
                 GPIO.output(UVLed, GPIO.HIGH)
@@ -43,7 +47,7 @@ if __name__ == '__main__':
                 time.sleep(0.1)
 
             if GPIO.input(btn2):
-                print("btn2")
+                #print("btn2")
                 time.sleep(0.5)
 
     except KeyboardInterrupt:
