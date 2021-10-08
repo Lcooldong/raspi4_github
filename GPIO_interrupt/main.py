@@ -32,6 +32,7 @@ def button_pressed_callback1(channel):
     last_ledGreen_state = not last_ledGreen_state
     GPIO.output(vibrator, GPIO.HIGH)
     time.sleep(1)
+    GPIO.output(vibrator, GPIO.LOW)
 
 def button_pressed_callback2(channel):
     global last_ledRed_state
@@ -39,6 +40,7 @@ def button_pressed_callback2(channel):
     last_ledRed_state = not last_ledRed_state
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(1)
+    GPIO.output(buzzer, GPIO.LOW)
 
 if __name__ == '__main__':
     try:
