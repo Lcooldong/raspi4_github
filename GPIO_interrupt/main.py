@@ -32,11 +32,9 @@ def btn2pushed(chBtn2):
 if __name__ == '__main__':
     print("Ctrl + C to exit")
     try:
-        GPIO.add_event_detect(btn1, GPIO.RISING, callback=btn1pushed, bouncetime=200)
-        GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed, bouncetime=200)
-
-        # while True:
-        #     pass
+        while True:
+            GPIO.add_event_detect(btn1, GPIO.RISING, callback=btn1pushed, bouncetime=200)
+            GPIO.add_event_detect(btn2, GPIO.RISING, callback=btn2pushed, bouncetime=200)
 
     except:
         print("error")
