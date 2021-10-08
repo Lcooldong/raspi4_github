@@ -26,15 +26,15 @@ def button_pressed_callback1(channel):
     GPIO.output(ledGreen, not last_ledGreen_state)
     last_ledGreen_state = not last_ledGreen_state
 
-def button_pressed_callback2(channel2):
+def button_pressed_callback2(channel):
     global last_ledRed_state
     GPIO.output(ledRed, not last_ledRed_state)
     last_ledRed_state = not last_ledRed_state
 
 if __name__ == '__main__':
     try:
-        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback1, bouncetime=200)
-        GPIO.add_event_detect(btn2, GPIO.RISING, callback=button_pressed_callback2, bouncetime=200)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback1, bouncetime=500)
+        GPIO.add_event_detect(btn2, GPIO.RISING, callback=button_pressed_callback2, bouncetime=500)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
 
