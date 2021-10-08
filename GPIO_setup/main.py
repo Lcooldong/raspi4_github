@@ -30,7 +30,10 @@ if __name__ == '__main__':
     print("Ctrl + C to exit")
     try:
         while True:
-            if GPIO.input(btn1):
+            btn1Read = GPIO.input(btn1)
+            btn2Read = GPIO.input(btn2)
+
+            if (btn1Read == True):
                 print("btn1")
                 time.sleep(0.5)
             else:
