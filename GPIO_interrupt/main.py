@@ -46,8 +46,8 @@ def button_pressed_callback2(channel):
 
 if __name__ == '__main__':
     try:
-        GPIO.add_event_detect(btn1, GPIO.FALLING, callback=button_pressed_callback1, bouncetime=500)
-        GPIO.add_event_detect(btn2, GPIO.FALLING, callback=button_pressed_callback2, bouncetime=500)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback1, bouncetime=500)
+        GPIO.add_event_detect(btn2, GPIO.RISING, callback=button_pressed_callback2, bouncetime=500)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
 
