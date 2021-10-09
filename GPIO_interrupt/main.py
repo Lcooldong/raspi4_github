@@ -3,11 +3,13 @@ import sys
 import RPi.GPIO as GPIO
 import time
 
-btn1 = 8
-btn2 = 7
+# btn1 = 8
+# btn2 = 7
+btn1 = 16
 vibrator = 23  # GPIO23
 buzzer = 24    # GPIO24
-ledGreen = 6
+#ledGreen = 6
+ledGreen = 21
 ledRed = 5
 
 last_ledGreen_state = 0
