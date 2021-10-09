@@ -16,8 +16,8 @@ last_ledGreen_state = 0
 last_ledRed_state = 0
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(btn2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(vibrator, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(buzzer, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(ledGreen, GPIO.OUT, initial=GPIO.LOW)
