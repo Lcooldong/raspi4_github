@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import time
 
 # btn1 = 8
-# btn2 = 7
+btn2 = 7
 btn1 = 16
 vibrator = 23  # GPIO23
 buzzer = 24    # GPIO24
