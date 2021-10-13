@@ -25,6 +25,7 @@ def detect_blood():
     GPIO.output(vibrator, GPIO.LOW)
     GPIO.output(buzzer, GPIO.LOW)
     GPIO.output(led_Green, GPIO.LOW)
+    time.sleep(0.5)
 
 def detect_stain():
     GPIO.output(led_Blue, GPIO.HIGH)
