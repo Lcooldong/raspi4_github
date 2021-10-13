@@ -61,17 +61,6 @@ def button_pressed_callback(channel):
 # MAIN LOOP
 if __name__ == '__main__':
     try:
-        while True:
-            GPIO.output(led_Red, GPIO.LOW)
-            GPIO.output(led_Green, GPIO.HIGH)
-            time.sleep(0.5)
-            GPIO.output(led_Green, GPIO.LOW)
-            GPIO.output(led_Blue, GPIO.HIGH)
-            time.sleep(0.5)
-            GPIO.output(led_Blue, GPIO.LOW)
-            GPIO.output(led_Red, GPIO.HIGH)
-            time.sleep(0.5)
-
         GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=1000)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
