@@ -1,21 +1,20 @@
 import signal
 import sys
 import RPi.GPIO as GPIO
-import time
+
 
 from function import *
 
 state = 0
-def signal_handler(sig, frame):
-    GPIO.cleanup()
-    sys.exit(0)
 
 last_ledGreen_state = 0
 count = 0
 def button_pressed_callback(channel):
     global state
-    if state == 1:
+    if state == 0:
         detect_blood()
+    elif state == 1:
+        pass
     else:
         pass
     print("detect blood!")
