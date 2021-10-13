@@ -7,6 +7,7 @@ btn1 = 18
 led = 17
 
 last_ledGreen_state = 0
+count = 0
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(btn1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -19,9 +20,12 @@ def signal_handler(sig, frame):
 
 def button_pressed_callback1(channel):
     global last_ledGreen_state
+    global count
     GPIO.output(led, not last_ledGreen_state)
     last_ledGreen_state = not last_ledGreen_state
-    print("btn1")
+    #print("btn1")
+    count += 1
+    print(count)
 
 
 if __name__ == '__main__':
