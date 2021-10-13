@@ -6,14 +6,9 @@ import time
 from function import *
 
 
-
 def button_pressed_callback(channel):
-    state = 0
-    print(state)
-    if state == 0:
-        detect_blood()
-    else:
-        GPIO.output(led_White, GPIO.HIGH)
+    detect_blood()
+    print("detect blood!")
 
 
 # MAIN LOOP
