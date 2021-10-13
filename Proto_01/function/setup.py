@@ -2,7 +2,6 @@ import sys
 import RPi.GPIO as GPIO
 import time
 
-#def set_up():
 # INPUT
 btn1 = 18
 state = 0
@@ -32,6 +31,7 @@ GPIO.setup(led_White, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(vibrator, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(buzzer, GPIO.OUT, initial=GPIO.LOW)
 
+
 def start_program():
     GPIO.output(vibrator, GPIO.HIGH)
     time.sleep(1)
@@ -39,6 +39,7 @@ def start_program():
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(0.5)
     GPIO.output(buzzer, GPIO.LOW)
+
 
 def signal_handler(sig, frame):
     GPIO.cleanup()

@@ -35,8 +35,10 @@ def button_pressed_callback(channel):
     global state
     if state == 0:
         detect_blood()
+        print("detect blood!")
     elif state == 1:
-        pass
+        detect_stain()
+        print("detect stain!")
     else:
         pass
-    print("detect blood!")
+
