@@ -61,6 +61,14 @@ def button_pressed_callback(channel):
 # MAIN LOOP
 if __name__ == '__main__':
     try:
+        GPIO.output(vibrator, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(vibrator, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(vibrator, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(vibrator, GPIO.HIGH)
+        time.sleep(1)
         GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=1000)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
