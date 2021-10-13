@@ -40,7 +40,7 @@ def signal_handler(sig, frame):
     sys.exit(0)
 
 
-def button_pressed_callback1(channel):
+def button_pressed_callback(channel):
     global last_ledGreen_state
     global count
     GPIO.output(led_Green, not last_ledGreen_state)
@@ -48,6 +48,15 @@ def button_pressed_callback1(channel):
     #print("btn1")
     count += 1
     print(count)
+    if count == 2:
+        GPIO.output(vibrator, GPIO.HIGH)
+    else:
+        GPIO.output(vibrator, GPIO.LOW)
+
+    if count == 4:
+        GPIO.output(buzzer, GPIO.HIGH)
+    else:
+        GPIO.output(vibrator, GPIO.LOW)
 
 # MAIN LOOP
 if __name__ == '__main__':
@@ -63,7 +72,7 @@ if __name__ == '__main__':
             GPIO.output(led_Red, GPIO.HIGH)
             time.sleep(0.5)
 
-        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback1, bouncetime=1000)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=1000)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
 
