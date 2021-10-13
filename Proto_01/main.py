@@ -9,6 +9,7 @@ from function import *
 state = 0
 def button_pressed_callback(channel):
     global state
+    print(state)
     if state == 0:
         detect_blood()
     elif state == 1:
