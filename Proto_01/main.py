@@ -14,12 +14,10 @@ last_ledGreen_state = 0
 count = 0
 def button_pressed_callback(channel):
     global state
-    GPIO.output(led_Green, GPIO.HIGH)
-    GPIO.output(vibrator, GPIO.HIGH)
-    GPIO.output(buzzer, GPIO.HIGH)
-    time.sleep(0.5)
-    GPIO.output(vibrator, GPIO.LOW)
-    GPIO.output(buzzer, GPIO.LOW)
+    if state == 1:
+        detect_blood()
+    else:
+        pass
     print("detect blood!")
 
 
@@ -27,7 +25,7 @@ def button_pressed_callback(channel):
 # MAIN LOOP
 if __name__ == '__main__':
     try:
-        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=2000)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=5000)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
 
