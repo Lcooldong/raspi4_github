@@ -30,6 +30,3 @@ GPIO.setup(led_White, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(vibrator, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(buzzer, GPIO.OUT, initial=GPIO.LOW)
 
-def signal_handler(sig, frame):
-    GPIO.cleanup()
-    sys.exit(0)

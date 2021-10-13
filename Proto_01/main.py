@@ -6,6 +6,10 @@ import time
 from function import *
 
 state = 0
+def signal_handler(sig, frame):
+    GPIO.cleanup()
+    sys.exit(0)
+
 def button_pressed_callback(channel):
     global state
     detect_blood()
