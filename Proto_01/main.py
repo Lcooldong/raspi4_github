@@ -6,9 +6,9 @@ import time
 from function import *
 
 
-state = 0
+
 def button_pressed_callback(channel):
-    global state
+    state = 0
     print(state)
     if state == 0:
         detect_blood()
