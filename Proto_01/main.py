@@ -13,24 +13,18 @@ def signal_handler(sig, frame):
 last_ledGreen_state = 0
 count = 0
 def button_pressed_callback(channel):
-    global last_ledGreen_state
-    global count
-    GPIO.output(led_Green, not last_ledGreen_state)
-    last_ledGreen_state = not last_ledGreen_state
-    #print("btn1")
-    count += 1
-    print(count)
-    # global state
-    # detect_blood()
-    # print("detect blood!")
+    global state
+    detect_blood()
+    print("detect blood!")
+
 
 
 # MAIN LOOP
 if __name__ == '__main__':
     try:
         GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=1000)
-        signal.signal(signal.SIGINT, signal_handler)
-        signal.pause()
+        #signal.signal(signal.SIGINT, signal_handler)
+        #signal.pause()
 
     except KeyboardInterrupt:
         print("error")
