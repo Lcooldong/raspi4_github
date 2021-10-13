@@ -6,7 +6,7 @@ import time
 from function import *
 
 
-def button_pressed_callback(channel):
+def button_pressed_callback1(channel):
     detect_blood()
     print("detect blood!")
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     try:
         #start_program()
 
-        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=1000)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback1, bouncetime=1000)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
 
