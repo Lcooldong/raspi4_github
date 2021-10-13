@@ -51,11 +51,17 @@ def button_pressed_callback(channel):
 
     if count == 2:
         GPIO.output(buzzer, GPIO.HIGH)
+    elif count == 3:
+        GPIO.output(led_UV, GPIO.HIGH)
     elif count == 4:
         GPIO.output(vibrator, GPIO.HIGH)
+    elif count == 5:
+        GPIO.output(led_White, GPIO.HIGH)
     else:
         GPIO.output(buzzer, GPIO.LOW)
         GPIO.output(vibrator, GPIO.LOW)
+        GPIO.output(led_UV, GPIO.LOW)
+        GPIO.output(led_White, GPIO.LOW)
 
 # MAIN LOOP
 if __name__ == '__main__':
