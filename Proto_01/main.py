@@ -24,7 +24,7 @@ if __name__ == '__main__':
     try:
         GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=1000)
         #signal.signal(signal.SIGINT, signal_handler)
-        #signal.pause()
+        signal.pause()
 
     except KeyboardInterrupt:
         print("error")
