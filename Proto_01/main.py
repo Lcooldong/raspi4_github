@@ -13,9 +13,6 @@ def button_pressed_callback(channel):
     if state == 0:
         detect_blood()
         state = 1
-    elif state == 1:
-        detect_stain()
-        state = 0
     else:
         GPIO.output(led_White, GPIO.HIGH)
 
