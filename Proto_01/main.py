@@ -48,14 +48,13 @@ def button_pressed_callback(channel):
     #print("btn1")
     count += 1
     print(count)
+
     if count == 2:
+        GPIO.output(buzzer, GPIO.HIGH)
+    elif count == 4:
         GPIO.output(vibrator, GPIO.HIGH)
     else:
-        GPIO.output(vibrator, GPIO.LOW)
-
-    if count == 4:
-        GPIO.output(buzzer, GPIO.HIGH)
-    else:
+        GPIO.output(buzzer, GPIO.LOW)
         GPIO.output(vibrator, GPIO.LOW)
 
 # MAIN LOOP
