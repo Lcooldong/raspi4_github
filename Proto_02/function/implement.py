@@ -37,7 +37,7 @@ def capture_white_Led():
 def capture_UV_Led():
     GPIO.output(led_UV, GPIO.HIGH)
     capture()
-    time.sleep(0.5)
+    time.sleep(0.1)
     GPIO.output(led_UV, GPIO.LOW)
 
 def detect_blood():
