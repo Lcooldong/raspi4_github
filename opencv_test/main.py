@@ -12,7 +12,7 @@ if __name__ == '__main__':
     frame = cv2.flip(frame, 1)  # 좌우 대칭
 
     print(os.path.dirname(os.path.realpath(__file__)))
-    cv2.imwrite('opencv_test/picture/test.jpg', frame)  # 사진 저장
+    cv2.imwrite('./opencv_test/picture/test.jpg', frame)  # 사진 저장
 
     cap.release()
     cv2.destroyAllWindows()
