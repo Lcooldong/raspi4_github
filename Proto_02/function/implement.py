@@ -70,6 +70,7 @@ def detect_stain():
 
 
 def detect_error():
+    GPIO.output(led_Red, GPIO.HIGH)
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(0.1)
     GPIO.output(buzzer, GPIO.LOW)
@@ -77,7 +78,9 @@ def detect_error():
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(0.1)
     GPIO.output(buzzer, GPIO.LOW)
+    GPIO.output(led_Red, GPIO.LOW)
 
+    
 state = 0
 def button_pressed_callback(channel):
     global state
