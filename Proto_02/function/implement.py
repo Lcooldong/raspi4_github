@@ -68,17 +68,27 @@ def detect_stain():
     GPIO.output(vibrator, GPIO.LOW)
     GPIO.output(led_Blue, GPIO.LOW)
 
+
+def detect_error():
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.1)
+    GPIO.output(buzzer, GPIO.LOW)
+    time.sleep(0.2)
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.1)
+    GPIO.output(buzzer, GPIO.LOW)
+
 state = 0
 def button_pressed_callback(channel):
     global state
     capture_white_Led()
     capture_UV_Led()
-    if state == 1:
+    if state == 2:
         detect_blood()
         print("detect blood!")
-    elif state == 0:
+    elif state == 1:
         detect_stain()
         print("detect stain!")
     else:
-        pass
+        detect_error()
 
