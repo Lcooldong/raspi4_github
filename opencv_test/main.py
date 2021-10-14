@@ -11,7 +11,7 @@ if __name__ == '__main__':
     ret, frame = cap.read()  # 사진 촬영
     frame = cv2.flip(frame, 1)  # 좌우 대칭
 
-    cv2.imwrite('./picture/test.jpg', frame)  # 사진 저장
+    cv2.imwrite('picture/test.jpg', frame)  # 사진 저장
 
     cap.release()
     cv2.destroyAllWindows()
