@@ -41,7 +41,7 @@ def detect_stain():
     GPIO.output(vibrator, GPIO.LOW)
     GPIO.output(led_Blue, GPIO.LOW)
 
-
+state = 0
 def button_pressed_callback(channel):
     global state
     capture_normal()

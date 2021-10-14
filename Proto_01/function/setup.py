@@ -4,7 +4,6 @@ import time
 
 # INPUT
 btn1 = 18
-state = 0
 
 # RGB
 led_Blue = 22
