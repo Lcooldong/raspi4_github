@@ -3,8 +3,8 @@
 import RPi.GPIO as GPIO
 import numpy as np
 import cv2
-import os
-import time
+
+
 
 from setup import *
 
