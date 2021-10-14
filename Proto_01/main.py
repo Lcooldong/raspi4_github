@@ -7,6 +7,7 @@ from function import *
 # MAIN LOOP
 if __name__ == '__main__':
     try:
+        print("ctrl + C to end this program")
         start_program()
         GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=5000)
         signal.signal(signal.SIGINT, signal_handler)
@@ -14,6 +15,7 @@ if __name__ == '__main__':
 
     except KeyboardInterrupt:
         print("error")
+        GPIO.cleanup()
 
     finally:
         pass
