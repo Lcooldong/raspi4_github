@@ -14,7 +14,7 @@ def capture():
     ret, frame = cap.read()
     frame = cv2.flip(frame, 1)
 
-    cv2.imwrite(f'./picture/{count}.jpg', frame)
+    cv2.imwrite('./picture/1.jpg', frame)
     count += 1
     cap.release()
     cv2.destroyAllWindows()
