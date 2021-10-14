@@ -1,14 +1,31 @@
 import time
-
+import numpy as np
+import cv2
 from setup import *
 import RPi.GPIO as GPIO
 
-def capture_normal():
+count = 0
+def capture():
+    global count
+    cap = cv2.VideoCapture(0)
+    cap.set(3, 640)
+    cap.set(4, 480)
+
+    ret, frame = cap.read()
+    frame = cv2.flip(frame, 1)
+
+    cv2.imwrite(f'./picture/{count}.jpg')
+    count += 1
+    cap.release()
+    cv2.destroyAllWindows()
+
+def capture_white_Led():
     GPIO.output(led_White, GPIO.HIGH)
+    capture()
     time.sleep(1)
     GPIO.output(led_White, GPIO.LOW)
 
-def capture_UV():
+def capture_UV_Led():
     GPIO.output(led_UV, GPIO.HIGH)
     time.sleep(1)
     GPIO.output(led_UV, GPIO.LOW)
@@ -44,12 +61,12 @@ def detect_stain():
 state = 0
 def button_pressed_callback(channel):
     global state
-    capture_normal()
-    capture_UV()
-    if state == 1:
+    capture_white_Led()
+    capture_UV_Led()
+    if state == 0:
         detect_blood()
         print("detect blood!")
-    elif state == 0:
+    elif state == 1:
         detect_stain()
         print("detect stain!")
     else:
