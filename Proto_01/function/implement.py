@@ -1,6 +1,17 @@
+import time
+
 from setup import *
 import RPi.GPIO as GPIO
 
+def capture_normal():
+    GPIO.output(led_White, GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(led_White, GPIO.LOW)
+
+def capture_UV():
+    GPIO.output(led_UV, GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(led_UV, GPIO.LOW)
 
 def detect_blood():
     GPIO.output(led_Green, GPIO.HIGH)
