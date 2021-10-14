@@ -44,17 +44,16 @@ def detect_blood():
     GPIO.output(led_Green, GPIO.HIGH)
     GPIO.output(vibrator, GPIO.HIGH)
     GPIO.output(buzzer, GPIO.HIGH)
-    time.sleep(0.5)
+    time.sleep(0.3)
     GPIO.output(vibrator, GPIO.LOW)
     GPIO.output(buzzer, GPIO.LOW)
-    time.sleep(0.5)
+    time.sleep(0.3)
     GPIO.output(vibrator, GPIO.HIGH)
     GPIO.output(buzzer, GPIO.HIGH)
-    time.sleep(0.5)
+    time.sleep(0.3)
     GPIO.output(vibrator, GPIO.LOW)
     GPIO.output(buzzer, GPIO.LOW)
     GPIO.output(led_Green, GPIO.LOW)
-    time.sleep(0.5)
 
 
 def detect_stain():
@@ -80,7 +79,7 @@ def detect_error():
     GPIO.output(buzzer, GPIO.LOW)
     GPIO.output(led_Red, GPIO.LOW)
 
-    
+
 state = 0
 def button_pressed_callback(channel):
     global state
@@ -94,4 +93,5 @@ def button_pressed_callback(channel):
         print("detect stain!")
     else:
         detect_error()
+        print("error!")
 
