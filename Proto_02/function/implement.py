@@ -31,7 +31,7 @@ def capture():
 def capture_white_Led():
     GPIO.output(led_White, GPIO.HIGH)
     capture()
-    time.sleep(0.5)
+    time.sleep(0.1)
     GPIO.output(led_White, GPIO.LOW)
 
 def capture_UV_Led():
