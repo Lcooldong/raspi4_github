@@ -44,6 +44,8 @@ def detect_stain():
 
 def button_pressed_callback(channel):
     global state
+    capture_normal()
+    capture_UV()
     if state == 0:
         detect_blood()
         print("detect blood!")
