@@ -21,7 +21,8 @@ def capture():
 
     #    print(os.path.dirname(os.path.realpath(__file__)))
     count += 1
-    cv2.imwrite(f'./opencv_test/picture/{count}.jpg', frame)  # 사진 저장
+    filename = str(count) + '.jpg'
+    cv2.imwrite('./opencv_test/picture/' + filename, frame)  # 사진 저장
 
     cap.release()
     cv2.destroyAllWindows()
