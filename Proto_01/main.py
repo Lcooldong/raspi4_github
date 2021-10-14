@@ -16,4 +16,5 @@ if __name__ == '__main__':
         print("error")
 
     finally:
-        GPIO.cleanup()
+        pass
+        #GPIO.cleanup()
