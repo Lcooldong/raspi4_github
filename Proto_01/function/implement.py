@@ -46,10 +46,10 @@ def button_pressed_callback(channel):
     global state
     capture_normal()
     capture_UV()
-    if state == 0:
+    if state == 1:
         detect_blood()
         print("detect blood!")
-    elif state == 1:
+    elif state == 0:
         detect_stain()
         print("detect stain!")
     else:
