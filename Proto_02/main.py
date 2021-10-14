@@ -9,7 +9,7 @@ if __name__ == '__main__':
     try:
         print("ctrl + C to exit")
         start_program()
-        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=5000)
+        GPIO.add_event_detect(btn1, GPIO.RISING, callback=button_pressed_callback, bouncetime=4000)
         signal.signal(signal.SIGINT, signal_handler)
         signal.pause()
 

@@ -85,7 +85,7 @@ def button_pressed_callback(channel):
     global state
     capture_white_Led()
     capture_UV_Led()
-    if state == 2:
+    if state == 0:
         detect_blood()
         print("detect blood!")
     elif state == 1:
