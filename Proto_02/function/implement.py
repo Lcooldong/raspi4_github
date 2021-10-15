@@ -89,10 +89,13 @@ def button_pressed_callback(channel):
     if state == 0:
         detect_blood()
         print("detect blood!")
+        state += 1
     elif state == 1:
         detect_stain()
         print("detect stain!")
+        state += 1
     else:
         detect_error()
         print("error!")
+        state = 0
 
