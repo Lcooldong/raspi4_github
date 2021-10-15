@@ -22,7 +22,8 @@ def capture():
     #    print(os.path.dirname(os.path.realpath(__file__)))
     count += 1
     filename = str(count) + '.jpg'
-    cv2.imwrite('./Proto_02/picture/' + filename, frame)  # 사진 저장
+    # cv2.imwrite('./Proto_02/picture/' + filename, frame)  # 사진 저장
+    cv2.imwrite('/home/pi/Documents/python_source/raspi4_github/Proto_02/picture/' + filename, frame)  # 사진 저장
 
     cap.release()
     cv2.destroyAllWindows()
