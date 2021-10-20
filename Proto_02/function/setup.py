@@ -1,7 +1,6 @@
 import sys
 import RPi.GPIO as GPIO
 import time
-import os
 
 # INPUT
 btn1 = 18

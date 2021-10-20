@@ -1,5 +1,4 @@
 import signal
-import sys
 import RPi.GPIO as GPIO
 from function import *
 
@@ -19,4 +18,4 @@ if __name__ == '__main__':
 
     finally:
         pass
-        #GPIO.cleanup()
+

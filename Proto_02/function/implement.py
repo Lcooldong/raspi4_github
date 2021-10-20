@@ -12,14 +12,14 @@ from setup import *
 count = 0
 def capture():
     global count
-    cap = cv2.VideoCapture(0, cv2.CAP_V4L)  # 노트북 웹캠을 카메라로 사용
+    cap = cv2.VideoCapture(0, cv2.CAP_V4L)
     cap.set(3, 640)  # 너비
     cap.set(4, 480)  # 높이
 
     ret, frame = cap.read()  # 사진 촬영
     frame = cv2.flip(frame, 1)  # 좌우 대칭
 
-    #    print(os.path.dirname(os.path.realpath(__file__)))
+    # print(os.path.dirname(os.path.realpath(__file__)))
     count += 1
     filename = str(count) + '.jpg'
     # cv2.imwrite('./Proto_02/picture/' + filename, frame)  # 사진 저장
@@ -35,11 +35,13 @@ def capture_white_Led():
     time.sleep(0.1)
     GPIO.output(led_White, GPIO.LOW)
 
+
 def capture_UV_Led():
     GPIO.output(led_UV, GPIO.HIGH)
     capture()
     time.sleep(0.1)
     GPIO.output(led_UV, GPIO.LOW)
+
 
 def detect_blood():
     GPIO.output(led_Green, GPIO.HIGH)
